@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">recyclerview_2</string>
+
+    <string-array name="planets">
+        <item>merrcury</item>
+        <item>venus</item>
+        <item>earth</item>
+        <item>mars</item>
+        <item>jupiter</item>
+        <item>uranus</item>
+        <item>staurn</item>
+        <item>neptune</item>
+    </string-array>
+
+    <string-array name="description">
+        <item>this is description</item>
+        <item>this is description</item>
+        <item>this is description</item>
+        <item>this is description</item>
+        <item>this is description</item>
+        <item>this is description</item>
+        <item>this is description</item>
+        <item>this is description</item>
+    </string-array>
+</resources>
