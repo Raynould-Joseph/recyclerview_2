@@ -4,11 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RecyclerViewInterface  {
     ArrayList<planet_model> planetModels=new ArrayList<>();
     int[] planet_images={R.drawable.mercury,R.drawable.venus,R.drawable.eath,R.drawable.mars,R.drawable.jupiter,R.drawable.uranus,R.drawable.saturn,R.drawable.neptune};
 
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView=findViewById(R.id.mrecycler_view);
 
         setupplanetsmodal();
-        planet_adapter adapter= new planet_adapter(this,planetModels);
+        planet_adapter adapter= new planet_adapter(this,planetModels,this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -34,6 +35,17 @@ public class MainActivity extends AppCompatActivity {
         {
             planetModels.add(new planet_model(planet_names[i],planet_description[i],planet_images[i]));
         }
+
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Intent intent= new Intent(MainActivity.this,MainActivity2.class);
+        intent.putExtra("Name",planetModels.get(position).getPlanet_name());
+        intent.putExtra("Description",planetModels.get(position).getPlanet_description());
+        intent.putExtra("Image",planetModels.get(position).getImage());
+        startActivity(intent);
+
 
     }
 }
